@@ -10,7 +10,7 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 
-from iqua_softener import (
+from .iqua import (
     IquaSoftener,
     IquaSoftenerData,
     IquaSoftenerVolumeUnit,

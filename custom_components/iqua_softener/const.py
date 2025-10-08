@@ -1,6 +1,7 @@
 from typing import Final
 
 DOMAIN: Final = "iqua_softener"
+PLATFORMS: list[str] = ["sensor"]
 
 CONF_USERNAME: Final = "username"
 CONF_PASSWORD: Final = "password"

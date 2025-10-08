@@ -135,6 +135,14 @@ async def async_setup_entry(
                     # device_class=SensorDeviceClass.WATER,
                 ),
             ),
+            (
+                IquaSoftenerWaterHardnessGrainsSensor,
+                SensorEntityDescription(
+                    key="WATER_HARDNESS_GRAINS",
+                    name="Water hardness grains",
+                    device_class=SensorDeviceClass.WATER,
+                ),
+            ),
         )
     ]
     async_add_entities(sensors)
@@ -283,3 +291,7 @@ class IquaSoftenerWaterUsageDailyAverageSensor(IquaSoftenerSensor):
             if data.volume_unit == IquaSoftenerVolumeUnit.LITERS
             else UnitOfVolume.GALLONS
         )
+
+class IquaSoftenerWaterHardnessGrainsSensor(IquaSoftenerSensor):
+    def update(self, data: IquaSoftenerData):
+        self._attr_native_value = data.hardness_grains
